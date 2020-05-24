@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>Cadastro</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body>
 
@@ -14,25 +16,30 @@
         <div class="w3-third">
             <div class="w3-container w3-margin">
                 <label>Nome:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey w3-border" type="text" autofocus required>
+                <input class="w3-input w3-light-grey w3-border" type="text" autofocus required id="name" name="name">
             </div>
             <div class="w3-container w3-margin">
                 <label>Sobrenome:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey  w3-border" type="text" required>
+                <input class="w3-input w3-light-grey  w3-border" type="text" required id="name" name="name">
             </div>
             <div class="w3-container w3-margin">
                 <label>Email:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey w3-border" required type="email" required>
+                <input class="w3-input w3-light-grey w3-border" id="email" name="email" required type="email" required>
                 <p class="w3-right-align w3-tiny">Não enviamos spam</p>
             </div>
             <div class="w3-container w3-margin">
                 <label>Telefone:</label>
-                <input class="w3-input w3-light-grey w3-border" type="text">
-                <p class="w3-right-align w3-tiny">Telefone ou Celular</p>
+                <input class="w3-input w3-light-grey w3-border" type="text" id="cellphone" name="cellphone">
+                <p class=" w3-right-align w3-tiny ">Telefone ou Celular com ddd</p>
             </div>
             <div class="w3-container w3-margin">
                 <label>Estado:</label>
-                <input class="w3-input w3-light-grey w3-border" type="text">
+                <select class="w3-select w3-light-grey w3-border" name="option">
+                    <option value=" " disabled selected>Escolher uma opção</option>
+                    <option value="1 ">PR</option>
+                    <option value="2 ">SC</option>
+                    <option value="3 ">RS</option>
+                </select>
             </div>
             <div class="w3-container w3-margin">
                 <label>Bairro:</label>
@@ -40,7 +47,7 @@
             </div>
             <div class="w3-container w3-margin">
                 <label>Número:</label>
-                <input class="w3-input w3-light-grey w3-border" type="number">
+                <input class="w3-input w3-light-grey w3-border" type="number" id="number" name="number">
             </div>
         </div>
 
@@ -63,37 +70,37 @@
                 </form>
             </div>
             <div class="w3-container w3-margin">
-                <label>Sobrenome:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey  w3-border" type="text" required>
+                <label>Senha:</label> <label class="w3-text-red">*</label>
+                <input class="w3-input w3-light-grey w3-border" type="password" required>
             </div>
             <div class="w3-container w3-margin">
-                <label>Email:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey w3-border" required type="email" required>
-                <p class="w3-right-align w3-tiny">Não enviamos spam</p>
+                <label>CEP:</label> <label class="w3-text-red">*</label>
+                <input class="w3-input w3-light-grey w3-border form-control cep-mask" required type="text" required placeholder="Ex.: 00000-000">
             </div>
             <div class="w3-container w3-margin">
-                <label>Telefone:</label>
-                <input class="w3-input w3-light-grey w3-border" type="text">
-                <p class="w3-right-align w3-tiny">Telefone ou Celular</p>
-            </div>
-            <div class="w3-container w3-margin">
-                <label>Estado:</label>
+                <label>Cidade:</label>
                 <input class="w3-input w3-light-grey w3-border" type="text">
             </div>
             <div class="w3-container w3-margin">
-                <label>Bairro:</label>
+                <label>Rua:</label>
                 <input class="w3-input w3-light-grey w3-border" type="text">
             </div>
             <div class="w3-container w3-margin">
-                <label>Número:</label>
-                <input class="w3-input w3-light-grey w3-border" type="number">
+                <label>Complemento:</label>
+                <input class="w3-input w3-light-grey w3-border" type="text">
             </div>
         </div>
 
         <div class="w3-third">
-
+            <div class="w3-container w3-margin">
+                <label>CPF:</label> <label class="w3-text-red">*</label>
+                <input class="w3-input w3-light-grey w3-border form-control cpf-mask" required type="text" required placeholder="Ex.: 000.000.000-00">
+            </div>
+            <div id="posicao">
+                <p>
+                    <button type="submit" class="w3-btn w3-green w3-border w3-text-black">Cadastrar</button></p>
+            </div>
         </div>
-    </div>
 
 </body>
 
