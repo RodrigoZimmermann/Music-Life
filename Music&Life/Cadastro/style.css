@@ -1,4 +1,8 @@
-#vermelho {
-    background-color: red !important;
-    color: red;
+#posicao {
+    position: absolute;
+    padding-top: 500px;
+    top: 80px;
+    right: 100px;
+    width: 200px;
+    height: 100px;
 }
