@@ -1,4 +1,3 @@
-musiclife.com
 $ dig MUSICLIFE.COM +nostats +nocomments +nocmd
   > ;MUSICLIFE.COM.                     IN      A
   > MUSICLIFE.COM.              3592    IN      CNAME   RodrigoZimmermann.github.io.
