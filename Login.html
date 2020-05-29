@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    button {
+        width: 40%;
+    }
+</style>
+
+<body>
+    <form id="form">
+        <div class="w3-row">
+            <div class="w3-third">
+                <div class="w3-container w3-margin">
+                    <label>Email:</label> <label class="w3-text-red">*</label>
+                    <input class="w3-input w3-light-grey w3-border" id="email" name="email" required type="email" placeholder="Email" required>
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Senha:</label> <label class="w3-text-red">*</label>
+                    <input class="w3-input w3-light-grey w3-border" type="password" placeholder="Senha" name="password" id="password" required>
+                </div>
+
+                <div class="w3-container w3-margin w3-cell-middle">
+                    <label><input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Lembrar de
+                    mim</label>
+                </div>
+                <div class="w3-container w3-margin">
+                    <p><a href="#" style="color:dodgerblue">Esqueceu sua senha ?</a></p>
+                </div>
+                <div class="w3-container w3-margin">
+                    <button class="w3-btn w3-green w3-border w3-text-black"> <a href="file:///C:/Users/rodri/Desktop/Trabalho1/Music&Life/Cadastro/Cadastro.html" class="w3-button">Registrar</i></a></button>
+                    <button id="entrar" class="w3-btn w3-green w3-border w3-text-black"><a href="#" class="w3-button">Entrar</i></a></button>
+                </div>
+                <div class="w3-container w3-margin">
+                    <p class=" w3-tiny">Ao clicar em Registrar, você concorda com nossos Termos, Política de Dados e Política de Cookies Você pode receber notificações por SMS e pode cancelar isso quando quiser.</p>
+                </div>
+
+            </div>
+            <div class="w3-twothird">
+                <h1>Entrar para nosso grupo de alunos no Discord</h1>
+                <img src="discord-logo.png" class="w3-image" width="100" height="100">
+                <h1 id="discord" class="w3-indigo w3-border w3-text-white w3-block w3-padding-64 w3-center"> <a href="https://discord.com/" class="w3-bar-item w3-button">Click to join our server</i></a></h1>
+
+
+            </div>
+        </div>
+    </form>
+    <script>
+        function validateEmail() {
+            const result = document.getElementById('email').value.split('');
+            let temArroba = false;
+
+            result.map(letra => {
+                if (letra == '@') temArroba = true
+            });
+            return temArroba;
+        }
+        $(document).ready(function() {
+            $("#entrar").click(function() {
+                if (document.getElementById("password").value == "") {
+                    alert('Preencha o campo senha');
+                } else {
+                    const validated = validateEmail()
+                    if (!validated) {
+                        alert('Insira o email corretamente')
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

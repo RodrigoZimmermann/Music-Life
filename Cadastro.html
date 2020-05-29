@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<title>Cadastro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    @media only screen and (min-width:800px) {
+        #posicao {
+            position: absolute;
+            padding-top: 500px;
+            top: 80px;
+            right: 100px;
+            width: 200px;
+            height: 100px;
+        }
+    }
+</style>
+
+<body>
+    <form id="form">
+        <div class="w3-container">
+            <h2>Cadastro</h2>
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-third">
+                <div class="w3-container w3-margin">
+                    <label>Nome:</label> <label class="w3-text-red">*</label>
+                    <input class="w3-input w3-light-grey w3-border" type="text" autofocus required id="name" name="name">
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Sobrenome:</label> <label class="w3-text-red">*</label>
+                    <input class="w3-input w3-light-grey  w3-border" type="text" required id="surname" name="name">
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Email:</label> <label class="w3-text-red">*</label>
+                    <input class="w3-input w3-light-grey w3-border" id="email" name="email" required type="email" required>
+                    <p class="w3-right-align w3-tiny">Não enviamos spam</p>
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Telefone:</label>
+                    <input class="w3-input w3-light-grey w3-border" type="text" id="cellphone" name="cellphone">
+                    <p class=" w3-right-align w3-tiny ">Telefone ou Celular com ddd</p>
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Estado:</label>
+                    <select class="w3-select w3-light-grey w3-border" name="option">
+                        <option value=" " disabled selected>Escolher uma opção</option>
+                        <option value="1 ">PR</option>
+                        <option value="2 ">SC</option>
+                        <option value="3 ">RS</option>
+                    </select>
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Bairro:</label>
+                    <input class="w3-input w3-light-grey w3-border" type="text">
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Número:</label>
+                    <input class="w3-input w3-light-grey w3-border" type="number" id="number" name="number">
+                </div>
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-container w3-margin">
+                    <form class="w3-container w3-card-4">
+                        <label>Sexo:</label>
+                        <p>
+                            <input class="w3-radio" type="radio" name="gender" value="Masculino">
+                            <label>Masculino</label></p>
+                        <p>
+                            <input class="w3-radio" type="radio" name="gender" value="Feminino">
+                            <label>Feminino</label></p>
+                        <p>
+                            <input class="w3-radio" type="radio" name="gender" value="Indefinido">
+                            <label>Indefinido</label></p>
+                        <p>
+                            <input class="w3-radio" type="radio" name="gender" value="Indefinido" checked>
+                            <label>Não quero informar</label></p>
+                    </form>
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Senha:</label> <label class="w3-text-red">*</label>
+                    <input id="senha" class="w3-input w3-light-grey w3-border" type="password" required>
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>CEP:</label> <label class="w3-text-red">*</label>
+                    <input id="cep" class="w3-input w3-light-grey w3-border form-control cep-mask" required type="text" required placeholder="Ex.: 00000-000">
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Cidade:</label>
+                    <input class="w3-input w3-light-grey w3-border" type="text">
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Rua:</label>
+                    <input class="w3-input w3-light-grey w3-border" type="text">
+                </div>
+                <div class="w3-container w3-margin">
+                    <label>Complemento:</label>
+                    <input class="w3-input w3-light-grey w3-border" type="text">
+                </div>
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-container w3-margin">
+                    <label>CPF:</label> <label class="w3-text-red">*</label>
+                    <input class="w3-input w3-light-grey w3-border form-control cpf-mask" required id="cpf" type="text" required placeholder="Ex.: 000.000.000-00">
+                </div>
+                <div id="posicao">
+                    <p><button id="cadastrar" type="submit" class="w3-btn w3-green w3-border w3-text-black">Cadastrar</button></p>
+                    <p> <button class="w3-btn w3-green w3-border w3-text-black" id="apagar">Apagar Info</button></p>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        /*
+                        function validateEmail() {
+                            const result = document.getElementById('email').value.split('');
+                            let temArroba = false;
+
+                            result.map(letra => {
+                                if (letra == '@') temArroba = true
+                            });
+                            return temArroba;
+                        } 
+                        */
+        $(document).ready(function() {
+            /*
+            $("#cadastrar").click(function() {
+                if (document.getElementById("senha").value == "") {
+                    alert('Preencha o campo senha');
+                } else if (document.getElementById("name").value == "") {
+                    alert('Preencha o campo nome');
+                } else if (document.getElementById("surname").value == "") {
+                    alert('Preencha o campo sobrenome');
+                } else if (document.getElementById("cpf").value == "") {
+                    alert('Preencha o campo CPF');
+                } else if (document.getElementById("cep").value == "") {
+                    alert('Preencha o campo CEP');
+                } else {
+                    const validated = validateEmail()
+                    if (!validated) {
+                        alert('Insira o email corretamente')
+                    }
+                }
+                */
+            $("#apagar").click(function() {
+                document.getElementById('form').reset();
+            })
+        });
+        // });
+    </script>
+</body>
+
+</html>
