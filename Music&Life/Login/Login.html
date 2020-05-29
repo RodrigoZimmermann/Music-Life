@@ -25,14 +25,15 @@
             </div>
 
             <div class="w3-container w3-margin w3-cell-middle">
-                <label><input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Lembrar de mim</label>
+                <label><input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Lembrar de
+                    mim</label>
             </div>
             <div class="w3-container w3-margin">
                 <p><a href="#" style="color:dodgerblue">Esqueceu sua senha ?</a></p>
             </div>
             <div class="w3-container w3-margin">
-                <button class="w3-btn w3-green w3-border w3-text-black" type="button" class="signupbtn">Registrar</button>
-                <button class="w3-btn w3-green w3-border w3-text-black" type="submit" class="signupbtn">Entrar</button>
+                <button class="w3-btn w3-green w3-border w3-text-black"> <a href="file:///C:/Users/rodri/Desktop/Trabalho1/Music&Life/Cadastro/Cadastro.html" class="w3-button">Registrar</i></a></button>
+                <button id="entrar" class="w3-btn w3-green w3-border w3-text-black"><a href="#" class="w3-button">Entrar</i></a></button>
             </div>
             <div class="w3-container w3-margin">
                 <p class=" w3-tiny">Ao clicar em Registrar, você concorda com nossos Termos, Política de Dados e Política de Cookies Você pode receber notificações por SMS e pode cancelar isso quando quiser.</p>
@@ -42,13 +43,34 @@
         <div class="w3-twothird">
             <h1>Entrar para nosso grupo de alunos no Discord</h1>
             <img src="discord-logo.png" class="w3-image" width="100" height="100">
-            <h1 href="https://discord.com/" class="w3-indigo w3-border w3-text-white w3-block w3-padding-64 w3-center">Click to join our server</h1>
+            <h1 id="discord" class="w3-indigo w3-border w3-text-white w3-block w3-padding-64 w3-center"> <a href="https://discord.com/" class="w3-bar-item w3-button">Click to join our server</i></a></h1>
+
 
         </div>
     </div>
+    <script>
+        function validateEmail() {
+            const result = document.getElementById('email').value.split('');
+            let temArroba = false;
 
+            result.map(letra => {
+                if (letra == '@') temArroba = true
+            });
+            return temArroba;
+        }
+        $(document).ready(function() {
+            $("#entrar").click(function() {
+                if (document.getElementById("password").value == "") {
+                    alert('Preencha o campo senha');
+                } else {
+                    const validated = validateEmail()
+                    if (!validated) {
+                        alert('Insira o email corretamente')
+                    }
+                }
+            });
+        });
+    </script>
 </body>
-
-<!-- Mirrored from www.w3schools.com/howto/tryit.asp?filename=tryhow_css_signup_form by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jul 2018 02:09:42 GMT -->
 
 </html>

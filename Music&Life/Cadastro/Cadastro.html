@@ -6,6 +6,19 @@
 <link rel="stylesheet" href="style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<style>
+    @media only screen and (min-width:800px) {
+        #posicao {
+            position: absolute;
+            padding-top: 500px;
+            top: 80px;
+            right: 100px;
+            width: 200px;
+            height: 100px;
+        }
+    }
+</style>
+
 <body>
 
     <div class="w3-container">
@@ -20,7 +33,7 @@
             </div>
             <div class="w3-container w3-margin">
                 <label>Sobrenome:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey  w3-border" type="text" required id="name" name="name">
+                <input class="w3-input w3-light-grey  w3-border" type="text" required id="surname" name="name">
             </div>
             <div class="w3-container w3-margin">
                 <label>Email:</label> <label class="w3-text-red">*</label>
@@ -71,11 +84,11 @@
             </div>
             <div class="w3-container w3-margin">
                 <label>Senha:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey w3-border" type="password" required>
+                <input id="senha" class="w3-input w3-light-grey w3-border" type="password" required>
             </div>
             <div class="w3-container w3-margin">
                 <label>CEP:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey w3-border form-control cep-mask" required type="text" required placeholder="Ex.: 00000-000">
+                <input id="cep" class="w3-input w3-light-grey w3-border form-control cep-mask" required type="text" required placeholder="Ex.: 00000-000">
             </div>
             <div class="w3-container w3-margin">
                 <label>Cidade:</label>
@@ -94,14 +107,45 @@
         <div class="w3-third">
             <div class="w3-container w3-margin">
                 <label>CPF:</label> <label class="w3-text-red">*</label>
-                <input class="w3-input w3-light-grey w3-border form-control cpf-mask" required type="text" required placeholder="Ex.: 000.000.000-00">
+                <input class="w3-input w3-light-grey w3-border form-control cpf-mask" required id="cpf" type="text" required placeholder="Ex.: 000.000.000-00">
             </div>
             <div id="posicao">
-                <p>
-                    <button type="submit" class="w3-btn w3-green w3-border w3-text-black">Cadastrar</button></p>
+                <p><button id="cadastrar" type="submit" class="w3-btn w3-green w3-border w3-text-black">Cadastrar</button></p>
             </div>
         </div>
+    </div>
 
+    <script>
+        function validateEmail() {
+            const result = document.getElementById('email').value.split('');
+            let temArroba = false;
+
+            result.map(letra => {
+                if (letra == '@') temArroba = true
+            });
+            return temArroba;
+        }
+        $(document).ready(function() {
+            $("#cadastrar").click(function() {
+                if (document.getElementById("senha").value == "") {
+                    alert('Preencha o campo senha');
+                } else if (document.getElementById("name").value == "") {
+                    alert('Preencha o campo nome');
+                } else if (document.getElementById("surname").value == "") {
+                    alert('Preencha o campo sobrenome');
+                } else if (document.getElementById("cpf").value == "") {
+                    alert('Preencha o campo CPF');
+                } else if (document.getElementById("cep").value == "") {
+                    alert('Preencha o campo CEP');
+                } else {
+                    const validated = validateEmail()
+                    if (!validated) {
+                        alert('Insira o email corretamente')
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
